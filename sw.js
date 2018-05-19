@@ -17,7 +17,7 @@ self.addEventListener('install', function(e) {
 
 	    	// Add all the default files to the cache
 			console.log('[ServiceWorker] Caching cacheFiles');
-			return cache.addAll(cacheFiles);
+			return cache.addAll(cachFiles);
 	    })
       .catch(function (data){
         console.log(data);
