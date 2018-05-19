@@ -33,7 +33,7 @@ a {
 a:hover,
 a:focus {
 	color: #3397db;
-	text-decoration: none;
+	text-decoration:underline;
 }
 
 a img {
@@ -368,7 +368,9 @@ nav h1 a {
 
 /* ====================== media query ====================== */
 
-@media only screen and (min-width: 900px) {
+/*===== Tablet =====*/
+
+@media only screen and (min-width: 700px) {
 	nav h1 a {
 		font-size: 25pt;
 	}
@@ -384,4 +386,26 @@ nav h1 a {
 	#footer {
 		font-size: 20pt;
 	}
+}
+
+/*===== Desktop =====*/
+
+@media only screen and (min-width: 900px) {
+	nav h1 a {
+		font-size: 30pt;
+	}
+	.filter-options h2 {
+		font-size: 2em;
+		padding: 15px 0 0 0;
+		height: 80px;
+	}
+	.filter-options select {
+		font-size: 2em;
+		width: 300px;
+	}
+	#footer {
+		font-size: 25pt;
+	}
+}
+
 }
