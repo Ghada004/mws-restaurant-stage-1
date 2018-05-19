@@ -13,7 +13,7 @@ self.addEventListener('install', function(e) {
     e.waitUntil(
 
     	// Open the cache
-	    caches.open(cacheName).then(function(cache) {
+	    caches.open(cachName).then(function(cache) {
 
 	    	// Add all the default files to the cache
 			console.log('[ServiceWorker] Caching cacheFiles');
