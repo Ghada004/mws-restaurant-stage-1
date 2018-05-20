@@ -2,15 +2,28 @@
 let cachName = "v1";
 let cachFiles = [
      '/',
-     'css/',
-     'js/',
-     'img/'
+     './index.html',
+     './restaurant.html',
+     'css/styles.css',
+     'img/1.jpg',
+     'img/2.jpg',
+     'img/3.jpg',
+     'img/4.jpg',
+     'img/5.jpg',
+     'img/6.jpg',
+     'img/7.jpg',
+     'img/8.jpg',
+     'img/9.jpg',
+     'js/main.js',
+     'js/restaurantInfo.js',
+     'js/dbhelper.js',
+     'data/restaurants.json'
 ]
 
-self.addEventListener('install', function(e) {
+self.addEventListener('install', function(event) {
     console.log('[ServiceWorker] Installed');
 
-    e.waitUntil(
+    event.waitUntil(
 
     	// Open the cache
 	    caches.open(cachName).then(function(cache) {
@@ -26,15 +39,14 @@ self.addEventListener('install', function(e) {
 
 });
 
-self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request)
-    .then(function(response) {
-      if (response) return response;
-      return fetch(e.request);
-    })
-    .catch(function(data) {
-      console.log(data);
-    })
-  )
+
+self.addEventListener('fetch', function(event) {
+  const url = new URL(event.request.url);
+  if (url.pathname.startsWith('/restaurant.html')) {
+      event.respondWith(
+          caches.match('restaurant.html')
+          .then(response => response || fetch(event.request))
+      );
+      return;
+}
 });
