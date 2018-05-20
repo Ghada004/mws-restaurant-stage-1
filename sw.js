@@ -17,7 +17,6 @@ let cachFiles = [
      'js/main.js',
      'js/restaurantInfo.js',
      'js/dbhelper.js',
-     'data/restaurants.json'
 ]
 
 self.addEventListener('install', function(event) {
